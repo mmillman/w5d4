@@ -1,0 +1,6 @@
+<h1>Employees</h1>
+
+<% Employee.all.each do |employee| %>
+  <%= link_to employee.id, employee %>
+  <br>
+<% end %>

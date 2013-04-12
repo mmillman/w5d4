@@ -1,0 +1,15 @@
+<h1>Employee page for '<%= @employee.id %>'</h1>
+
+<% profile = @employee.profile %>
+
+<% if profile %>
+  <h2>Profile:</h2>
+  Name: <%= profile.name %>
+  Height: <%= profile.height %>
+  Age: <%= profile.age %>
+  Favorite_food: <%= profile.favorite_food %>
+  Favorite_day: <%= profile.favorite_day %>
+  Date_of_birth: <%= profile.date_of_birth %>
+  Salary: <%= profile.salary %>
+  Photo: <%= profile.photo %>
+<% end %>

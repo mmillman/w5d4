@@ -1,0 +1,65 @@
+<%= form_for(@employee) do |f| %>
+
+
+  <h2>Choose team:</h2>
+
+  <%= f.fields_for(:team_memberships_attributes) do |tf| %>
+
+    <%= tf.collection_select :team_id, Team.all, :id, :name %>
+
+  <% end %>
+
+  <h2>Profile</h2>
+  <%= f.fields_for(:profile_attributes) do |pf| %>
+    <%= pf.label :height %>
+    <%= pf.text_field :height %>
+
+    <br>
+
+    <%= pf.label :age %>
+    <%= pf.text_field :age %>
+
+    <br>
+
+    <%= pf.label :favorite_food %>
+    <%= pf.text_field :favorite_food %>
+
+    <br>
+
+    <%= pf.label :favorite_day %>
+    <%=
+      pf.select(
+        :favorite_day,
+        [
+          ["Sunday", "sunday"],
+          ["Monday", "monday"],
+          ["Tuesday", "tuesday"],
+          ["Wednesday", "wednesday"],
+          ["Thursday", "thursday"],
+          ["Friday", "friday"],
+          ["Saturday", "saturday"]
+        ]
+      )
+    %>
+
+    <br>
+
+    <%= pf.label :date_of_birth %>
+    <%= pf.date_select :date_of_birth %>
+
+    <br>
+
+    <%= pf.label :salary %>
+    <%= pf.text_field :salary %>
+
+    <br>
+
+    <%= pf.label :photo %>
+    <%= pf.text_field :photo %>
+
+    <br>
+  <% end %>
+
+  <%= f.submit "Save Employee" %>
+
+<% end %>
